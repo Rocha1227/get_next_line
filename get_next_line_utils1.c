@@ -5,47 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 12:50:40 by krocha            #+#    #+#             */
-/*   Updated: 2023/06/15 12:51:17 by krocha           ###   ########.fr       */
+/*   Created: 2023/06/11 01:17:30 by krocha            #+#    #+#             */
+/*   Updated: 2023/06/15 12:49:15 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/**
- * returns the length of string s without null terminator
- */
-size_t	ft_strlen(char *s)
+
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
-	while (s[i] != '\0')
+	while (str[i])
 		i++;
 	return (i);
 }
-
-char	*ft_strchr(char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	return (0);
-}
-/**
- * concatanates two strings s1 and s2
- */
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -73,4 +50,22 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (str);
+}
+
+char	*ft_strchr(char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	if (c == '\0')
+		return ((char *)&str[ft_strlen(str)]);
+	while (str[i] != '\0')
+	{
+		if (str[i] == (char) c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	return (0);
 }
