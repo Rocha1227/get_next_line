@@ -6,7 +6,7 @@
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:55:46 by krocha            #+#    #+#             */
-/*   Updated: 2023/07/03 12:32:32 by krocha           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:25:01 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_strjoin (char *str1, char *str2)
 	}
 	if (!str1 || !str2)
 		return (NULL);
-	s = malloc(sizeof(char) * ((ft_strlen(str1) + ft_strlen(str2)) + 1));
+	s = ft_calloc(((ft_strlen(str1) + ft_strlen(str2)) + 1), sizeof(char));
 	if (!s)
 		return (NULL);
 	i = 0;
@@ -80,7 +80,7 @@ char	*ft_get_line(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	s = (char *)malloc(sizeof(char) * (i + 2));
+	s = ft_calloc((i + 2),sizeof(char));
 	if (!s)
 		return (NULL);
 	i = 0;
@@ -112,7 +112,7 @@ char	*ft_next_line(char *str)
 		free(str);
 		return (NULL);
 	}
-	s = (char *)malloc(sizeof(char) * (ft_strlen(str) - i + 1));
+	s = ft_calloc((ft_strlen(str) - i + 1), sizeof(char));
 	if (!s)
 		return (NULL);
 	i++;
@@ -122,4 +122,19 @@ char	*ft_next_line(char *str)
 	s[a] = '\0';
 	free(str);
 	return (s);
+}
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	char	*ptr;
+	int		i;
+	int		n;
+
+	i = 0;
+	n = nmemb * size;
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	while (n-- > 0)
+		ptr[i++] = '\0';
+	return (ptr);
 }

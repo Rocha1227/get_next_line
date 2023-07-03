@@ -6,7 +6,7 @@
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:53:32 by krocha            #+#    #+#             */
-/*   Updated: 2023/07/03 13:58:14 by krocha           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:22:26 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*read_file(char *str, int fd)
 	int		bytes;
 	char	*buf;
 
-	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buf = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buf)
 		return (NULL);
 	bytes = 1;
