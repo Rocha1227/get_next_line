@@ -6,7 +6,7 @@
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:55:46 by krocha            #+#    #+#             */
-/*   Updated: 2023/07/03 15:25:01 by krocha           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:35:39 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,15 +123,15 @@ char	*ft_next_line(char *str)
 	free(str);
 	return (s);
 }
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t memsize, size_t size)
 {
 	char	*ptr;
 	int		i;
 	int		n;
 
 	i = 0;
-	n = nmemb * size;
-	ptr = malloc(nmemb * size);
+	n = memsize * size;
+	ptr = malloc(memsize * size);
 	if (!ptr)
 		return (NULL);
 	while (n-- > 0)
