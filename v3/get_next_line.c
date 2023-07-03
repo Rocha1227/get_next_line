@@ -6,7 +6,7 @@
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:53:32 by krocha            #+#    #+#             */
-/*   Updated: 2023/07/03 15:22:26 by krocha           ###   ########.fr       */
+/*   Updated: 2023/07/03 16:17:47 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,22 @@ char	*read_file(char *str, int fd)
 	}
 	free(buf);
 	return (str);
+}
+
+void	*ft_calloc(size_t memsize, size_t size)
+{
+	char	*ptr;
+	int		i;
+	int		n;
+
+	i = 0;
+	n = memsize * size;
+	ptr = malloc(memsize * size);
+	if (!ptr)
+		return (NULL);
+	while (n-- > 0)
+		ptr[i++] = '\0';
+	return (ptr);
 }
 
 char	*get_next_line(int fd)

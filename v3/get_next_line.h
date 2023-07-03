@@ -6,7 +6,7 @@
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:54:26 by krocha            #+#    #+#             */
-/*   Updated: 2023/07/03 15:35:47 by krocha           ###   ########.fr       */
+/*   Updated: 2023/07/03 16:38:07 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*get_next_line(int fd);
 /* GET_NEXT_LINE_UTILS */
 size_t	ft_strlen(char *str);
 char	*ft_strchr(char *str, int c);
-char	*ft_strjoin (char *str1, char *str2);
+char	*ft_strjoin(char *str1, char *str2);
 char	*read_file(char *str, int fd);
 char	*ft_get_line(char *str);
 char	*ft_next_line(char *str);
