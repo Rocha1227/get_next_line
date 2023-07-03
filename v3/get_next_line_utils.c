@@ -6,7 +6,7 @@
 /*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:55:46 by krocha            #+#    #+#             */
-/*   Updated: 2023/07/01 17:37:03 by krocha           ###   ########.fr       */
+/*   Updated: 2023/07/03 12:32:32 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,67 +24,50 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(char *str, int c)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
-	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	return (0);
+		if (c == '\0')
+			return ((char *)&str[ft_strlen(str)]);
+			while (str[i] != '\0')
+			{
+				if (str[i] == (char) c)
+					return ((char *)&str[i]);
+				i++;
+			}
+		return (0);
 }
 
-/* char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*str;
-
-	if (!s1)
-	{
-		s1 = malloc(sizeof(char));
-		s1[0] = '\0';
-	}
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!str)
-		return (NULL);
-	//finish here
-	free(s1);
-	return (str);
-} */
-
-char	*ft_strjoin(char *left_str, char *buff)
+char	*ft_strjoin (char *str1, char *str2)
 {
 	size_t	i;
-	size_t	j;
-	char	*str;
+	size_t	a;
+	char	*s;
 
-	if (!left_str)
+	if (!str1)
 	{
-		left_str = (char *)malloc(1 * sizeof(char));
-		left_str[0] = '\0';
+		str1 = (char *)malloc(sizeof(char) * 1);
+		str1[0] = '\0';
 	}
-	if (!left_str || !buff)
+	if (!str1 || !str2)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
-	if (str == NULL)
+	s = malloc(sizeof(char) * ((ft_strlen(str1) + ft_strlen(str2)) + 1));
+	if (!s)
 		return (NULL);
-	i = -1;
-	j = 0;
-	if (left_str)
-		while (left_str[++i] != '\0')
-			str[i] = left_str[i];
-	while (buff[j] != '\0')
-		str[i++] = buff[j++];
-	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
-	free(left_str);
-	return (str);
+	i = 0;
+	a = 0;
+	if (str1)
+		while (str1[i++] != '\0')
+			s[i] = str1[i];
+	while (str2[a] != '\0')
+		s[i++] = str2[a++];
+	s[ft_strlen(str1) + ft_strlen(str2)] = '\0';
+	free(str1);
+	return (s);
 }
 
 char	*ft_get_line(char *str)
